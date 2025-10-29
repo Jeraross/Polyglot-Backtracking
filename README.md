@@ -1,65 +1,61 @@
 # Polyglot-Backtracking
 
-Bem-vindo a este "laboratório" de código dedicado à exploração e análise de algoritmos de **backtracking** implementados em múltiplas linguagens de programação.
+A repository for exploring and analyzing **backtracking** algorithms across multiple programming languages.
 
-Este projeto foi desenvolvido como requisito para a disciplina de **Teoria da Computação**. Nosso principal objetivo é analisar e comparar as implementações em três eixos principais:
+This project is a requirement for a **Theory of Computation** course. The primary goal is to compare implementations based on three main axes:
 
-1.  **Performance:** Tempo de execução e uso de memória em diferentes tamanhos de entrada.
-2.  **Expressividade:** Legibilidade, quantidade de linhas e clareza do código.
-3.  **Paradigma:** A "forma idiomática" de resolver o problema em cada linguagem (ex: imperativo vs. funcional vs. baixo nível).
-
----
-
-## O que você encontrará aqui?
-
-Este repositório está organizado por problemas. Para cada problema, você encontrará uma ou mais implementações em cada uma das linguagens de estudo.
-
-### Problemas Clássicos
-
-* **`n-queens/`**: O problema clássico de posicionar N rainhas em um tabuleiro NxN sem que ataquem umas às outras.
-* **`sudoku-solver/`**: Um solucionador de Sudoku que preenche grades vazias usando a lógica de backtracking.
-
-### Estudo de Caso Especial: A Analogia de Metroid
-
-A seção `/metroid` é um caso especial. Ela não resolve um problema combinatório, mas sim **implementa a analogia** que usamos para entender o backtracking. Veja a seção dedicada abaixo.
+1.  **Performance:** Execution time and memory usage.
+2.  **Expressiveness:** Readability, clarity, and lines of code.
+3.  **Paradigm:** The idiomatic approach for each language (imperative, functional, etc.).
 
 ---
 
-## As Linguagens (Os "Poliglotas")
+## Project Structure
 
-A escolha das linguagens foi feita para maximizar as diferenças de paradigma e performance:
+The repository is organized by problem, with each directory containing implementations in the languages listed below.
 
-* **Python (Alto Nível):** Focado na clareza, legibilidade e velocidade de *implementação*.
-* **C++ (Compilada):** Focado no desempenho bruto, controle manual de memória e otimizações de baixo nível.
-* **Haskell (Funcional Pura):** Focado em uma abordagem declarativa, imutável e na elegância matemática da solução.
-* **Assembly (Nível de Máquina):** Usado como a *baseline* definitiva para performance, demonstrando o custo real das abstrações das outras linguagens.
+### Classic Problems
+* **`n-queens/`**: The classic N-Queens placement problem.
+* **`sudoku-solver/`**: A backtracking-based Sudoku grid solver.
 
----
-
-## Estudo de Caso: A Analogia de Metroid
-
-**Por que Metroid está em um repositório de backtracking?**
-
-Usamos o gênero *Metroidvania* como a principal analogia para explicar o backtracking: um algoritmo de "tentativa e erro" inteligente.
-
-* **O Jogo:** Samus (o algoritmo) explora um mapa (o espaço de busca).
-* **A Tentativa:** Ela escolhe um caminho (uma "escolha" recursiva).
-* **O Beco Sem Saída:** Ela encontra uma porta vermelha sem mísseis (uma "constraint" ou regra violada).
-* **O "Backtrack":** Ela **volta atrás** (desfaz a escolha/retorna da recursão) até o último ponto de decisão e tenta o *outro* caminho.
-* **A Solução Parcial:** Ela encontra um *power-up* (ex: Morph Ball), que muda seu estado e permite que caminhos anteriormente inválidos agora sejam explorados.
-
-Os códigos nesta pasta (`/metroid`) **simulam esse processo de exploração de mapa**, servindo como uma ferramenta de estudo visual e prática da lógica fundamental do backtracking.
+### Special Case: The Metroid Analogy
+* **`metroid/`**: This is a conceptual implementation of the backtracking analogy, not a standard combinatorial problem. See the dedicated section below.
 
 ---
 
-## Como Usar
+## The Languages ("The Polyglots")
 
-Cada pasta de problema (ex: `n-queens/`) contém seu próprio `README.md` com instruções de compilação e execução para cada linguagem.
+Languages were chosen to highlight differences in paradigm and performance:
 
-Geralmente, você precisará de:
-* Um compilador C++ (g++, clang)
-* Um interpretador Python 3
-* O compilador GHC (para Haskell)
-* Um montador (ex: NASM) e linker (ld) para Assembly.
+* **Python (High-Level):** Focus on clarity and speed of implementation.
+* **C++ (Compiled):** Focus on raw performance and low-level optimization.
+* **Haskell (Functional):** Focus on a declarative, immutable approach.
+* **Assembly (Machine-Level):** The definitive baseline for performance, demonstrating the cost of abstraction.
 
-Scripts de benchmark e os resultados da análise de performance podem ser encontrados na pasta `/analysis`.
+---
+
+## Special Case: The Metroid Analogy
+
+**Why Metroid?** We use the *Metroidvania* genre as the primary analogy for backtracking's "intelligent trial-and-error" logic:
+
+* **The Goal:** Samus (the algorithm) explores a map (the search space).
+* **The Attempt:** She chooses a path (a recursive choice).
+* **The Dead End:** She hits a red door without missiles (a violated constraint).
+* **The "Backtrack":** She returns to the last junction (unwinds the stack) and tries the *other* path.
+* **The State Change:** She finds a power-up (e.g., Morph Ball), which changes her state and validates previously invalid paths.
+
+The code in the `/metroid` folder simulates this map exploration process as a practical, visual study of the core backtracking logic.
+
+---
+
+## How to Use
+
+Each problem directory (e.g., `n-queens/`) contains its own `README.md` with specific build and execution instructions.
+
+### General Requirements:
+* C++ compiler (g++, clang)
+* Python 3 interpreter
+* GHC (for Haskell)
+* NASM / ld (for Assembly)
+
+Benchmark scripts and performance results can be found in the `/analysis` directory.
