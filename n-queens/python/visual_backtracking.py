@@ -2,9 +2,7 @@ import time
 import os
 
 # --- Configurações da Visualização ---
-# Use N=4 ou N=5. N=8 é muito lento para assistir!
 N = 4
-# Atraso em segundos (0.5 = meio segundo). Ajuste como quiser.
 DELAY = 1.0
 # -----------------------------------
 

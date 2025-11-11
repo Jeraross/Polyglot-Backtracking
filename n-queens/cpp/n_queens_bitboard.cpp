@@ -2,11 +2,24 @@
 #include <string>
 
 long long count = 0;
-long long nodes_visited = 0; // Novo contador global
+long long nodes_visited = 0;     // Chamadas para solve() - uma por linha
+long long explored_placements = 0; // Número de chamadas recursivas (bits '1' em 'possible')
+long long pruned_paths = 0;      // Número de bits '0' em 'possible'
 long long ALL_SET = 0; 
+int BOARD_SIZE = 0; // Precisamos de N
+
+// Função para contar bits '1' (popcount) se __builtin não estiver disponível
+int popcount(long long x) {
+    int count = 0;
+    while (x) {
+        x &= (x - 1);
+        count++;
+    }
+    return count;
+}
 
 void solve(long long col, long long ld, long long rd) {
-    nodes_visited++; // Rastreia cada chamada
+    nodes_visited++; 
 
     if (col == ALL_SET) {
         count++;
@@ -14,8 +27,17 @@ void solve(long long col, long long ld, long long rd) {
     }
 
     long long possible = ~(col | ld | rd) & ALL_SET;
+    
+    // Popcount de GCC é mais rápido, mas manual funciona
+    // int ones = __builtin_popcountll(possible);
+    // int zeros = BOARD_SIZE - ones;
+    int ones = popcount(possible);
+    int zeros = BOARD_SIZE - ones;
+
+    pruned_paths += zeros;
 
     while (possible) {
+        explored_placements++; // Contando cada colocação real explorada
         long long bit = possible & -possible;
         possible -= bit;
         solve(col | bit, (ld | bit) << 1, (rd | bit) >> 1);
@@ -28,10 +50,9 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    int n;
     try {
-        n = std::stoi(argv[1]);
-        if (n <= 0 || n > 63) {
+        BOARD_SIZE = std::stoi(argv[1]); // Salva N globalmente
+        if (BOARD_SIZE <= 0 || BOARD_SIZE > 63) {
              throw std::invalid_argument("N must be between 1 and 63");
         }
     } catch (const std::exception& e) {
@@ -39,14 +60,16 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    ALL_SET = (1LL << n) - 1;
+    ALL_SET = (1LL << BOARD_SIZE) - 1;
 
     solve(0, 0, 0);
 
-    // Nova saída JSON (formatada manualmente)
+    // Saída JSON completa
     std::cout << "{\"solutions\": " << count 
-              << ", \"nodes_visited\": " << nodes_visited << "}" 
-              << std::endl;
+              << ", \"nodes_visited\": " << nodes_visited 
+              << ", \"explored_placements\": " << explored_placements
+              << ", \"pruned_paths\": " << pruned_paths
+              << "}" << std::endl;
 
     return 0;
 }
