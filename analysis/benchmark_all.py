@@ -8,7 +8,7 @@ import resource # Para medir o uso de memória (funciona no Linux/WSL)
 # --- Configuration ---
 # N=15 é muito lento para os não-bitboard, mas rápido para o bitboard
 N_VALUES_STANDARD = range(4, 15) # Para Python, Java, C++ Padrão
-N_VALUES_BITBOARD = range(4, 19) # O Bitboard pode ir mais longe
+N_VALUES_BITBOARD = range(4, 17) # O Bitboard pode ir mais longe
 
 # Paths (relative to this script's location)
 PROJECT_ROOT = ".."
