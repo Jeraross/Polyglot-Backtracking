@@ -26,11 +26,14 @@ The Python script takes `N` (the board size) as a command-line argument.
 python3 ./python/n_queens.py 8
 ```
 
-4-Queens visualization with python:
+To get an intuitive feel for how backtracking works, run the visualizer.
 
 ```bash
-python3 ./python/visual_backtracking.py
+python3 visual_backtracking.py
 ```
+
+> **Note:** You can edit the `N` (e.g., `N = 5`) and `DELAY` (e.g., `DELAY = 0.3`) variables at the top of the file to change the board size and speed.
+
 
 ### C++
 
