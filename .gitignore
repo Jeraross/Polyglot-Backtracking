@@ -1,0 +1,36 @@
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Configurações de IDE/Editor
+.vscode/
+.idea/
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints/
+
+# --- Java ---
+# Arquivos .class compilados
+*.class
+# O arquivo específico do seu projeto
+n-queens/java/NQueens.class
+
+# --- C++ ---
+# Arquivos de objeto
+*.o
+*.out
+
+# Os executáveis compilados pelo seu Makefile
+n-queens/cpp/n_queens
+n-queens/cpp/n_queens_bitboard
+
+# --- Análise (Dados Gerados) ---
+# O CSV de resultados é um DADO gerado, não código-fonte.
+# É melhor que cada usuário gere o seu.
+analysis/results.csv
