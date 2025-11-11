@@ -1,7 +1,5 @@
 # Polyglot-Backtracking
 
-A repository for exploring and analyzing **backtracking** algorithms across multiple programming languages.
-
 This project is a requirement for a **Theory of Computation** course. The primary goal is to compare implementations based on three main axes:
 
 1.  **Performance:** Execution time and memory usage.
