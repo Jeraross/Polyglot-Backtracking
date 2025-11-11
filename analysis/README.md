@@ -14,10 +14,10 @@ This is the main workflow of the project, split into two parts: **generating** t
 
 #### Part A: Generate the Benchmark Data
 
-1.  Navigate to the `analysis` directory:
+1.  Install requirements:
 
     ```bash
-    cd analysis
+    pip3 install -r requirements.txt
     ```
 
 2.  Run the benchmark script:
