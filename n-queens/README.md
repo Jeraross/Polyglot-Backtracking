@@ -26,6 +26,12 @@ The Python script takes `N` (the board size) as a command-line argument.
 python3 ./python/n_queens.py 8
 ```
 
+4-Queens visualization with python:
+
+```bash
+python3 ./python/visual_backtracking.py
+```
+
 ### C++
 
 A Makefile is provided in the cpp/ directory for convenience.
